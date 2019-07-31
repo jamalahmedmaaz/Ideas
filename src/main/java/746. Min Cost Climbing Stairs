@@ -1,0 +1,36 @@
+746. Min Cost Climbing Stairs
+
+Once you pay the cost, you can either climb one or two steps.
+You need to find minimum cost to reach the top of the floor,
+and you can either start from the step with index 0, or the step with index 1.
+
+Input: cost = [10, 15, 20]
+Output: 15
+
+First we need to understand we have only two choices and when do we have
+these choices.
+
+so after picking 1 or 2nd element you can jump to step + 1 or step + 2.
+
+That means you dont have a choice before picking anything.
+
+You only get a choice to jump step after picking.
+
+other way is to look at this problem as i am at no-step, meaning ground.
+i can take a jump to step1 or jump to step2.
+
+so everytime i have jumped i need to maintain if that jump is actually the
+correct one.
+
+so first i will find current cost.
+
+currentCost = A[i] // You need to be vigilant while coding as you many need an
+index more than the cost array.
+
+you will fill the current dp position with a very basic formula.
+
+dp[i] = Math.min( currentCost + A[i-1], currentCost + A[i-2]);
+
+so another way of looking a the problem is after reaching a step, decide which
+previous (1,2 steps) would have been the best choice.
+

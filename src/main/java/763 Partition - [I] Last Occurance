@@ -1,0 +1,56 @@
+763. Partition Labels
+
+Input: S = "ababcbacadefegdehijhklij"
+Output: [9,7,8]
+
+
+IDEA:
+
+The idea is to maintain the last index of each element and loop through all the
+string and then compare if that index of the character have reached.
+
+go through the string and first we need to maintain the last occurrence of each
+character in a
+separate array.
+
+go through the string again, maintain start = 0, end = 0.
+
+now at every iteration change
+
+end = Math.max(end, index[S.charAt(i) - 'a']);
+
+when you reach end == i, you have found the partition.
+
+Current state of the index[] = [8,5,7,14,15,11,13,19,22,23,20,21];
+
+Example iterations:
+
+Iteration 1: i = 0, start = 0, end = 0.
+
+end = Math.max(0,8);
+
+Iteration 2: i = 1, start = 0, end = 8
+
+end = Math.max(8,5) => still 8.
+
+.
+.
+.
+This goes until 8 iterations total until we reach i = 8
+
+iteration 8: i = 8, start = 0, end = 8.
+
+end = Math.max(8,8)
+
+if(end == i) {
+    //you have reach the location. (end of partition)
+    partitionsize = end - start + 1;
+    start = end + 1;
+}
+
+
+
+
+
+
+
