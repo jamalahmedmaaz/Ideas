@@ -1,0 +1,80 @@
+Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.
+
+Note:
+
+The same word in the dictionary may be reused multiple times in the segmentation.
+You may assume the dictionary does not contain duplicate words.
+Example 1:
+
+Input: s = "leetcode", wordDict = ["leet", "code"]
+Output: true
+Explanation: Return true because "leetcode" can be segmented as "leet code".
+Example 2:
+
+Input: s = "applepenapple", wordDict = ["apple", "pen"]
+Output: true
+Explanation: Return true because "applepenapple" can be segmented as "apple pen apple".
+             Note that you are allowed to reuse a dictionary word.
+Example 3:
+
+Input: s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]
+Output: false
+
+
+IDEA:
+
+The idea is to treat the string as subproblem.
+
+lets take an example "leetcode"
+
+this can be divided logically into two subproblems leet + code.
+
+but you cannot directly reach to this equation you need to find all the possible
+substring which are part of the dictionary.
+
+if we can find all of these substring in the below fashion.
+
+            // l
+            // le
+            // e
+            // lee
+            // ee
+            // e
+            // leet
+            // leetc
+            // eetc
+            // etc
+            // tc
+            // c
+            // leetco
+            // eetco
+            // etco
+            // tco
+            // co
+            // o
+            // leetcod
+            // eetcod
+            // etcod
+            // tcod
+            // cod
+            // od
+            // d
+            // leetcode
+            // eetcode
+            // etcode
+            // tcode
+            // code
+
+then we can check each string if it exists. This can be solved with dp. by
+taking a dp array with 1 + s.length().
+
+and do two for loop.
+
+IS THIS CORRECT WAY, DID I ADDED THE CORRECT IDEA? DONT KNOW NEED TO IMPROVISE.
+
+
+
+
+
+
+
